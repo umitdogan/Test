@@ -1,0 +1,391 @@
+<Module specificationVersion='2'>
+    <ModulePrefs
+            title="Tufe Demo"
+            description="Sample Tufe gadget"
+            author="IKSAP"
+            thumbnail="">
+        <Require feature="dynamic-height" />
+    </ModulePrefs>
+    <UserPref
+        name="mycolor"
+        display_name="Color"
+        default_value="Lime"
+        datatype="string" />
+    <Content type="html">
+        <![CDATA[
+        <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+  <script>
+        var data = [
+    { Yil: 2004, Ay: 'Ocak', Index: 104.81, Period: '2004 Ocak', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Şubat', Index: 105.35, Period: '2004 Şubat', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Mart', Index: 106.36, Period: '2004 Mart', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Nisan', Index: 106.89, Period: '2004 Nisan', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Mayıs', Index: 107.35, Period: '2004 Mayıs', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Haziran', Index: 107.21, Period: '2004 Haziran', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Temmuz', Index: 107.72, Period: '2004 Temmuz', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Ağustos', Index: 108.54, Period: '2004 Ağustos', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Eylül', Index: 109.57, Period: '2004 Eylül', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Ekim', Index: 112.03, Period: '2004 Ekim', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Kasım', Index: 113.5, Period: '2004 Kasım', Tahmin: 0 },
+    { Yil: 2004, Ay: 'Aralık', Index: 113.86, Period: '2004 Aralık', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Ocak', Index: 114.49, Period: '2005 Ocak', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Şubat', Index: 114.51, Period: '2005 Şubat', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Mart', Index: 114.81, Period: '2005 Mart', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Nisan', Index: 115.63, Period: '2005 Nisan', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Mayıs', Index: 116.69, Period: '2005 Mayıs', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Haziran', Index: 116.81, Period: '2005 Haziran', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Temmuz', Index: 116.14, Period: '2005 Temmuz', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Ağustos', Index: 117.13, Period: '2005 Ağustos', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Eylül', Index: 118.33, Period: '2005 Eylül', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Ekim', Index: 120.45, Period: '2005 Ekim', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Kasım', Index: 122.14, Period: '2005 Kasım', Tahmin: 0 },
+    { Yil: 2005, Ay: 'Aralık', Index: 122.65, Period: '2005 Aralık', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Ocak', Index: 123.57, Period: '2006 Ocak', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Şubat', Index: 123.84, Period: '2006 Şubat', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Mart', Index: 124.18, Period: '2006 Mart', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Nisan', Index: 125.84, Period: '2006 Nisan', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Mayıs', Index: 128.2, Period: '2006 Mayıs', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Haziran', Index: 128.63, Period: '2006 Haziran', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Temmuz', Index: 129.72, Period: '2006 Temmuz', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Ağustos', Index: 129.15, Period: '2006 Ağustos', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Eylül', Index: 130.81, Period: '2006 Eylül', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Ekim', Index: 132.47, Period: '2006 Ekim', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Kasım', Index: 134.18, Period: '2006 Kasım', Tahmin: 0 },
+    { Yil: 2006, Ay: 'Aralık', Index: 134.49, Period: '2006 Aralık', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Ocak', Index: 135.84, Period: '2007 Ocak', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Şubat', Index: 136.42, Period: '2007 Şubat', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Mart', Index: 137.67, Period: '2007 Mart', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Nisan', Index: 139.33, Period: '2007 Nisan', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Mayıs', Index: 140.03, Period: '2007 Mayıs', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Haziran', Index: 139.69, Period: '2007 Haziran', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Temmuz', Index: 138.67, Period: '2007 Temmuz', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Ağustos', Index: 138.7, Period: '2007 Ağustos', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Eylül', Index: 140.13, Period: '2007 Eylül', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Ekim', Index: 142.67, Period: '2007 Ekim', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Kasım', Index: 145.45, Period: '2007 Kasım', Tahmin: 0 },
+    { Yil: 2007, Ay: 'Aralık', Index: 145.77, Period: '2007 Aralık', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Ocak', Index: 146.94, Period: '2008 Ocak', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Şubat', Index: 148.84, Period: '2008 Şubat', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Mart', Index: 150.27, Period: '2008 Mart', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Nisan', Index: 152.79, Period: '2008 Nisan', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Mayıs', Index: 155.07, Period: '2008 Mayıs', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Haziran', Index: 154.51, Period: '2008 Haziran', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Temmuz', Index: 155.4, Period: '2008 Temmuz', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Ağustos', Index: 155.02, Period: '2008 Ağustos', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Eylül', Index: 155.72, Period: '2008 Eylül', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Ekim', Index: 159.77, Period: '2008 Ekim', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Kasım', Index: 161.1, Period: '2008 Kasım', Tahmin: 0 },
+    { Yil: 2008, Ay: 'Aralık', Index: 160.44, Period: '2008 Aralık', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Ocak', Index: 160.9, Period: '2009 Ocak', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Şubat', Index: 160.35, Period: '2009 Şubat', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Mart', Index: 162.12, Period: '2009 Mart', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Nisan', Index: 162.15, Period: '2009 Nisan', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Mayıs', Index: 163.19, Period: '2009 Mayıs', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Haziran', Index: 163.37, Period: '2009 Haziran', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Temmuz', Index: 163.78, Period: '2009 Temmuz', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Ağustos', Index: 163.29, Period: '2009 Ağustos', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Eylül', Index: 163.93, Period: '2009 Eylül', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Ekim', Index: 167.88, Period: '2009 Ekim', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Kasım', Index: 170.01, Period: '2009 Kasım', Tahmin: 0 },
+    { Yil: 2009, Ay: 'Aralık', Index: 170.91, Period: '2009 Aralık', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Ocak', Index: 174.07, Period: '2010 Ocak', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Şubat', Index: 176.59, Period: '2010 Şubat', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Mart', Index: 177.62, Period: '2010 Mart', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Nisan', Index: 178.68, Period: '2010 Nisan', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Mayıs', Index: 178.04, Period: '2010 Mayıs', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Haziran', Index: 177.04, Period: '2010 Haziran', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Temmuz', Index: 176.19, Period: '2010 Temmuz', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Ağustos', Index: 176.9, Period: '2010 Ağustos', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Eylül', Index: 179.07, Period: '2010 Eylül', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Ekim', Index: 182.35, Period: '2010 Ekim', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Kasım', Index: 182.4, Period: '2010 Kasım', Tahmin: 0 },
+    { Yil: 2010, Ay: 'Aralık', Index: 181.85, Period: '2010 Aralık', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Ocak', Index: 182.6, Period: '2011 Ocak', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Şubat', Index: 183.93, Period: '2011 Şubat', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Mart', Index: 184.7, Period: '2011 Mart', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Nisan', Index: 186.3, Period: '2011 Nisan', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Mayıs', Index: 190.81, Period: '2011 Mayıs', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Haziran', Index: 188.08, Period: '2011 Haziran', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Temmuz', Index: 187.31, Period: '2011 Temmuz', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Ağustos', Index: 188.67, Period: '2011 Ağustos', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Eylül', Index: 190.09, Period: '2011 Eylül', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Ekim', Index: 196.31, Period: '2011 Ekim', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Kasım', Index: 199.7, Period: '2011 Kasım', Tahmin: 0 },
+    { Yil: 2011, Ay: 'Aralık', Index: 200.85, Period: '2011 Aralık', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Ocak', Index: 201.98, Period: '2012 Ocak', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Şubat', Index: 203.12, Period: '2012 Şubat', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Mart', Index: 203.96, Period: '2012 Mart', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Nisan', Index: 207.05, Period: '2012 Nisan', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Mayıs', Index: 206.61, Period: '2012 Mayıs', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Haziran', Index: 204.76, Period: '2012 Haziran', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Temmuz', Index: 204.29, Period: '2012 Temmuz', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Ağustos', Index: 205.43, Period: '2012 Ağustos', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Eylül', Index: 207.55, Period: '2012 Eylül', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Ekim', Index: 211.62, Period: '2012 Ekim', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Kasım', Index: 212.42, Period: '2012 Kasım', Tahmin: 0 },
+    { Yil: 2012, Ay: 'Aralık', Index: 213.23, Period: '2012 Aralık', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Ocak', Index: 216.74, Period: '2013 Ocak', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Şubat', Index: 217.39, Period: '2013 Şubat', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Mart', Index: 218.83, Period: '2013 Mart', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Nisan', Index: 219.75, Period: '2013 Nisan', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Mayıs', Index: 220.07, Period: '2013 Mayıs', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Haziran', Index: 221.75, Period: '2013 Haziran', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Temmuz', Index: 222.44, Period: '2013 Temmuz', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Ağustos', Index: 222.21, Period: '2013 Ağustos', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Eylül', Index: 223.91, Period: '2013 Eylül', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Ekim', Index: 227.94, Period: '2013 Ekim', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Kasım', Index: 227.96, Period: '2013 Kasım', Tahmin: 0 },
+    { Yil: 2013, Ay: 'Aralık', Index: 229.01, Period: '2013 Aralık', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Ocak', Index: 233.54, Period: '2014 Ocak', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Şubat', Index: 234.54, Period: '2014 Şubat', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Mart', Index: 237.18, Period: '2014 Mart', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Nisan', Index: 240.37, Period: '2014 Nisan', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Mayıs', Index: 241.32, Period: '2014 Mayıs', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Haziran', Index: 242.07, Period: '2014 Haziran', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Temmuz', Index: 243.17, Period: '2014 Temmuz', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Ağustos', Index: 243.4, Period: '2014 Ağustos', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Eylül', Index: 243.74, Period: '2014 Eylül', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Ekim', Index: 248.37, Period: '2014 Ekim', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Kasım', Index: 248.82, Period: '2014 Kasım', Tahmin: 0 },
+    { Yil: 2014, Ay: 'Aralık', Index: 247.72, Period: '2014 Aralık', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Ocak', Index: 250.45, Period: '2015 Ocak', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Şubat', Index: 252.24, Period: '2015 Şubat', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Mart', Index: 255.23, Period: '2015 Mart', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Nisan', Index: 259.39, Period: '2015 Nisan', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Mayıs', Index: 260.85, Period: '2015 Mayıs', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Haziran', Index: 259.51, Period: '2015 Haziran', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Temmuz', Index: 259.74, Period: '2015 Temmuz', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Ağustos', Index: 260.78, Period: '2015 Ağustos', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Eylül', Index: 263.11, Period: '2015 Eylül', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Ekim', Index: 267.2, Period: '2015 Ekim', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Kasım', Index: 268.98, Period: '2015 Kasım', Tahmin: 0 },
+    { Yil: 2015, Ay: 'Aralık', Index: 269.54, Period: '2015 Aralık', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Ocak', Index: 274.44, Period: '2016 Ocak', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Şubat', Index: 274.38, Period: '2016 Şubat', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Mart', Index: 274.27, Period: '2016 Mart', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Nisan', Index: 276.42, Period: '2016 Nisan', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Mayıs', Index: 278.02, Period: '2016 Mayıs', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Haziran', Index: 279.33, Period: '2016 Haziran', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Temmuz', Index: 282.58, Period: '2016 Temmuz', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Ağustos', Index: 281.76, Period: '2016 Ağustos', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Eylül', Index: 282.27, Period: '2016 Eylül', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Ekim', Index: 286.33, Period: '2016 Ekim', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Kasım', Index: 287.81, Period: '2016 Kasım', Tahmin: 0 },
+    { Yil: 2016, Ay: 'Aralık', Index: 292.54, Period: '2016 Aralık', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Ocak', Index: 299.74, Period: '2017 Ocak', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Şubat', Index: 302.17, Period: '2017 Şubat', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Mart', Index: 305.24, Period: '2017 Mart', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Nisan', Index: 309.23, Period: '2017 Nisan', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Mayıs', Index: 310.61, Period: '2017 Mayıs', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Haziran', Index: 309.78, Period: '2017 Haziran', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Temmuz', Index: 310.24, Period: '2017 Temmuz', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Ağustos', Index: 311.85, Period: '2017 Ağustos', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Eylül', Index: 313.88, Period: '2017 Eylül', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Ekim', Index: 320.4, Period: '2017 Ekim', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Kasım', Index: 325.18, Period: '2017 Kasım', Tahmin: 0 },
+    { Yil: 2017, Ay: 'Aralık', Index: 327.41, Period: '2017 Aralık', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Ocak', Index: 330.75, Period: '2018 Ocak', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Şubat', Index: 333.17, Period: '2018 Şubat', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Mart', Index: 336.48, Period: '2018 Mart', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Nisan', Index: 342.78, Period: '2018 Nisan', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Mayıs', Index: 348.34, Period: '2018 Mayıs', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Haziran', Index: 357.44, Period: '2018 Haziran', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Temmuz', Index: 359.41, Period: '2018 Temmuz', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Ağustos', Index: 367.66, Period: '2018 Ağustos', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Eylül', Index: 390.84, Period: '2018 Eylül', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Ekim', Index: 401.27, Period: '2018 Ekim', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Kasım', Index: 395.48, Period: '2018 Kasım', Tahmin: 0 },
+    { Yil: 2018, Ay: 'Aralık', Index: 393.88, Period: '2018 Aralık', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Ocak', Index: 398.07, Period: '2019 Ocak', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Şubat', Index: 398.71, Period: '2019 Şubat', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Mart', Index: 402.81, Period: '2019 Mart', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Nisan', Index: 409.63, Period: '2019 Nisan', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Mayıs', Index: 413.52, Period: '2019 Mayıs', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Haziran', Index: 413.63, Period: '2019 Haziran', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Temmuz', Index: 419.24, Period: '2019 Temmuz', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Ağustos', Index: 422.84, Period: '2019 Ağustos', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Eylül', Index: 427.04, Period: '2019 Eylül', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Ekim', Index: 435.59, Period: '2019 Ekim', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Kasım', Index: 437.25, Period: '2019 Kasım', Tahmin: 0 },
+    { Yil: 2019, Ay: 'Aralık', Index: 440.50, Period: '2019 Aralık', Tahmin: 0 },
+    { Yil: 2020, Ay: 'Ocak', Index: 446.45, Period: '2020 Ocak', Tahmin: 0 },
+    { Yil: 2020, Ay: 'Şubat', Index: 448.02, Period: '2020 Şubat', Tahmin: 0 },
+    { Yil: 2020, Ay: 'Mart', Index: 450.58, Period: '2020 Mart', Tahmin: 0 },
+    { Yil: 2020, Ay: 'Nisan', Index: 454.43, Period: '2020 Nisan', Tahmin: 0 },
+]
+        $(function () {
+            $("#resultTitle").hide();
+            $("#resultFooter").hide();
+            var distinctYil = []
+            var distinctAy = []
+            for (var i = 0; i < data.length; i++) {
+                if (distinctYil.indexOf(data[i].Yil) == -1) {
+                    distinctYil.push(data[i].Yil)
+                }
+                if (distinctAy.indexOf(data[i].Ay) == -1) {
+                    distinctAy.push(data[i].Ay)
+                }
+            }
+
+            for (var i = 0; i < distinctYil.length; i++) {
+                $("#SY").append("<option value='" + distinctYil[i] + "'>" + distinctYil[i] + "</option>");
+                $("#EY").append("<option value='" + distinctYil[i] + "'>" + distinctYil[i] + "</option>");
+            }
+            for (var i = 0; i < distinctAy.length; i++) {
+                $("#SM").append("<option value='" + distinctAy[i] + "'>" + distinctAy[i] + "</option>");
+                $("#EM").append("<option value='" + distinctAy[i] + "'>" + distinctAy[i] + "</option>");
+            }
+        });
+        function GetMonthIndex(ay) {
+            if (ay == 'Ocak') { return 1; }
+            if (ay == 'Şubat') { return 2; }
+            if (ay == 'Mart') { return 3; }
+            if (ay == 'Nisan') { return 4; }
+            if (ay == 'Mayıs') { return 5; }
+            if (ay == 'Haziran') { return 6; }
+            if (ay == 'Temmuz') { return 7; }
+            if (ay == 'Ağustos') { return 8; }
+            if (ay == 'Eylül') { return 9; }
+            if (ay == 'Ekim') { return 10; }
+            if (ay == 'Kasım') { return 11; }
+            if (ay == 'Aralık') { return 12; }
+
+        }
+        function Calculate() {
+            $("#resultTitle").hide();
+            $("#resultFooter").hide();
+            $("#result").html("");
+            var sy = $("#SY")[0].value;
+            var sm = $("#SM")[0].value;
+            var ey = $("#EY")[0].value;
+            var em = $("#EM")[0].value;
+            if (sy > ey) {
+                alert("Başlangıç dönemin bitiş döneminden büyük olamaz");
+                return;
+            }
+            if (sy == ey) {
+                if (GetMonthIndex(sm) > GetMonthIndex(em)) {
+                    alert("Başlangıç dönemin bitiş döneminden büyük olamaz");
+                    return;
+                }
+            }
+            var speriod = "";
+            if (sm == "Ocak") {
+                speriod = (sy - 1) + " Aralık";
+            }
+            else {
+                switch (sm) {
+                    case "Şubat":
+                        speriod = sy + " Ocak";
+                        break;
+                    case "Mart":
+                        speriod = sy + " Şubat";
+                        break;
+                    case "Nisan":
+                        speriod = sy + " Mart";
+                        break;
+                    case "Mayıs":
+                        speriod = sy + " Nisan";
+                        break;
+                    case "Haziran":
+                        speriod = sy + " Mayıs";
+                        break;
+                    case "Temmuz":
+                        speriod = sy + " Haziran";
+                        break;
+                    case "Ağustos":
+                        speriod = sy + " Temmuz";
+                        break;
+                    case "Eylül":
+                        speriod = sy + " Ağustos";
+                        break;
+                    case "Ekim":
+                        speriod = sy + " Eylül";
+                        break;
+                    case "Kasım":
+                        speriod = sy + " Ekim";
+                        break;
+                    case "Aralık":
+                        speriod = sy + " Kasım";
+                        break;
+                }
+            }
+            var eperiod = ey + " " + em;
+
+            var svalue = 0;
+            var evalue = 0;
+            var svalue = data.filter(function (dat) {
+                return dat.Period == speriod;
+            });
+
+            var evalue = data.filter(function (dat) {
+                return dat.Period == eperiod;
+            });
+
+            var tufe = (evalue[0].Index / svalue[0].Index) - 1
+
+            $("#result").html("%" + Math.round(tufe * 10000) / 100)
+            $("#resultTitle").show();
+
+            if (evalue[0].Tahmin == 1 || svalue[0].Tahmin == 1) {
+                $("#resultFooter").show();
+            }
+        }
+
+
+    </script>
+    
+    <div style="font-size: 18px; display: inline-block; text-align: left; padding-top: 20px">
+            TÜFE Hesaplama Aracı'na hoşgeldiniz.<br>
+            <br>
+            Bu araç, iki dönem arası TÜFE değişim oranını % cinsinden hesaplar. Başlangıç dönemi olarak seçilen dönemin ilk, bitiş dönemi olarak seçilen dönemin ise son takvim gününü hesaplamalarda baz alır. Örn; 2019 yılı Ocak - Şubat arası 1 aylık değişimi görebilmek için başlangıç ve bitiş dönemleri 2019 Şubat seçilmelidir. Hesaplama için Hesapla! butonuna basmalısınız.
+
+        </div>
+        <br>
+        <br>
+        <table style="font-size: 18px; width: 480px; display: inline-block">
+            <tr>
+                <td style="width: 120px">Başlangıç Yılı</td>
+                <td style="width: 120px">
+                    <select id="SY" style="width: 110px">
+                    </select>
+                </td>
+                <td style="width: 120px">Bitiş Yılı</td>
+                <td style="width: 120px">
+                    <select id="EY" style="width: 110px">
+                    </select>
+                </td>
+                <tr>
+            <tr>
+                <td>Başlangıç Ayı</td>
+
+                <td>
+                    <select id="SM" style="width: 110px">
+                    </select></td>
+                <td>Bitiş Ayı</td>
+                <td>
+                    <select id="EM" style="width: 110px">
+                    </select>
+                </td>
+                <tr>
+        </table>
+
+        <br>
+        <br>
+        <input type="button" value="Hesapla!" onclick="Calculate()" style="font-size: 18px;">
+        <br>
+        <br>
+        <div id="resultTitle" style="font-size: 18px; display: inline-block; text-decoration: underline;">Seçtiğiniz iki dönem arası TÜFE değişim oranı</div>
+        <br>
+        <div id="result" style="font-size: 20px; display: inline-block; font-weight: bold;"></div>
+        <br>
+        <div id="resultFooter" style="font-size: 18px; display: inline-block; font-weight: bold; color: maroon">
+            (Seçtiğiniz başlangıç ve/veya bitiş dönemine/dönemlerine ilişkin gerçekleşen veri bulunmayıp, Akbank tarafından iletilen TÜFE gelecek tahminleri baz alınarak hesaplanmıştır.)
+        </div>
+           
+        ]]>
+    </Content>
+</Module>
